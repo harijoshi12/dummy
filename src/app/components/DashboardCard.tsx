@@ -1,28 +1,80 @@
-// src/components/DashboardCard.tsx
+"use client";
+
 import React from "react";
+import { MoreHorizontal } from "lucide-react";
+import ChartComponent from "./ChartComponent";
 
 interface DashboardCardProps {
   title: string;
-  amount: string;
-  subTitle?: string;
-  subAmount?: string;
+  subtitle: string;
+  value: string;
+  unit?: string;
+  description: string;
+  dropdownOptions: string[];
+  chartData?: any;
+  legend?: { color: string; label: string }[];
 }
 
-export default function DashboardCard({
+const DashboardCard: React.FC<DashboardCardProps> = ({
   title,
-  amount,
-  subTitle,
-  subAmount,
-}: DashboardCardProps) {
+  subtitle,
+  value,
+  unit,
+  description,
+  dropdownOptions,
+  chartData,
+  legend,
+}) => {
   return (
-    <div className="bg-white rounded-lg p-4 shadow-sm flex flex-col justify-between">
-      <h3 className="text-gray-700 font-medium">{title}</h3>
-      <p className="text-2xl font-bold text-gray-900 mt-2">{amount}</p>
-      {subTitle && (
-        <div className="mt-2 text-sm text-gray-500">
-          {subTitle}: <span className="font-medium">{subAmount}</span>
+    <div className="bg-white shadow-md rounded-lg p-10 w-full max-w-xs">
+      {/* Title & Actions */}
+      <div className="flex justify-between items-start">
+        <div>
+          <h3 className="text-lg font-semibold">{title}</h3>
+          <p className="text-xs text-gray-500">{subtitle}</p>
+        </div>
+        <MoreHorizontal className="text-gray-500 cursor-pointer" />
+      </div>
+
+      {/* Value */}
+      <div className="mt-2">
+        <span className="text-3xl font-bold">{value}</span>
+        {unit && <span className="text-xl text-gray-500 ml-1">{unit}</span>}
+        <p className="text-xs text-gray-500">{description}</p>
+      </div>
+
+      {/* Dropdown */}
+      <select className="mt-2 w-full border rounded-md p-1 text-sm text-gray-600">
+        {dropdownOptions.map((option, index) => (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+
+      {/* Chart */}
+      {chartData && (
+        <div className="mt-4">
+          <ChartComponent data={chartData} />
+        </div>
+      )}
+
+      {/* Legend */}
+      {legend && (
+        <div className="mt-3 flex space-x-4 text-xs">
+          {legend.map((item, index) => (
+            <div key={index} className="flex items-center space-x-1">
+              <span
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: item.color }}
+              ></span>
+              <span>{item.label}</span>
+            </div>
+          ))}
         </div>
       )}
     </div>
   );
-}
+};
+
+export default DashboardCard;

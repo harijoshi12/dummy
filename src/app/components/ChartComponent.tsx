@@ -1,36 +1,30 @@
-// src/components/ChartComponent.tsx
 "use client";
 
 import React from "react";
+import { Bar } from "react-chartjs-2";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
   Tooltip,
-  ResponsiveContainer,
   Legend,
-} from "recharts";
+} from "chart.js";
 
-interface ChartProps {
-  data: any[];
-  xKey: string;
-  yKeys: string[];
-  colors: string[];
+// Register required Chart.js components
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+interface ChartComponentProps {
+  data: any;
 }
 
-export default function ChartComponent({ data, xKey, yKeys, colors }: ChartProps) {
+const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
   return (
-    <ResponsiveContainer width="100%" height={200}>
-      <BarChart data={data}>
-        <XAxis dataKey={xKey} />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        {yKeys.map((key, index) => (
-          <Bar key={key} dataKey={key} fill={colors[index]} />
-        ))}
-      </BarChart>
-    </ResponsiveContainer>
+    <div className="h-48">
+      <Bar data={data} options={{ responsive: true, maintainAspectRatio: false }} />
+    </div>
   );
-}
+};
+
+export default ChartComponent;
