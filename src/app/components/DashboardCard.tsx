@@ -1,8 +1,10 @@
+// src/app/components/DashboardCard.tsx
 "use client";
 
 import React from "react";
 import { MoreHorizontal } from "lucide-react";
 import ChartComponent from "./ChartComponent";
+import type { ChartData } from "chart.js";
 
 interface DashboardCardProps {
   title: string;
@@ -11,7 +13,7 @@ interface DashboardCardProps {
   unit?: string;
   description: string;
   dropdownOptions: string[];
-  chartData?: any;
+  chartData?: ChartData<"bar">; // instead of `any`
   legend?: { color: string; label: string }[];
 }
 
@@ -66,8 +68,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
             <div key={index} className="flex items-center space-x-1">
               <span
                 className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: item.color }}
-              ></span>
+                style={{ backgroundColor: item.color }}></span>
               <span>{item.label}</span>
             </div>
           ))}

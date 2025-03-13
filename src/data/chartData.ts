@@ -1,4 +1,7 @@
-export const arAgingChartData = {
+// src/data/chartData.ts
+import type { ChartData } from "chart.js";
+
+export const arAgingChartData: ChartData<"bar"> = {
   labels: ["10", "11", "12", "13", "14"],
   datasets: [
     {
@@ -14,7 +17,7 @@ export const arAgingChartData = {
   ],
 };
 
-export const topDebtorsChartData = {
+export const topDebtorsChartData: ChartData<"bar"> = {
   labels: ["Debtor A", "Debtor B", "Debtor C", "Debtor D", "Debtor E"],
   datasets: [
     {
@@ -30,7 +33,7 @@ export const topDebtorsChartData = {
   ],
 };
 
-export const dsoChartData = {
+export const dsoChartData: ChartData<"bar"> = {
   labels: ["10", "11", "12", "13", "14"],
   datasets: [
     {

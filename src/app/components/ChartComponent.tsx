@@ -1,3 +1,4 @@
+// src/app/components/ChartComponent.tsx
 "use client";
 
 import React from "react";
@@ -10,19 +11,33 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartData,
+  ChartOptions,
 } from "chart.js";
 
 // Register required Chart.js components
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
+// Use ChartData<"bar"> for bar charts specifically
 interface ChartComponentProps {
-  data: any;
+  data: ChartData<"bar">;
+  options?: ChartOptions<"bar">;
 }
 
-const ChartComponent: React.FC<ChartComponentProps> = ({ data }) => {
+const ChartComponent: React.FC<ChartComponentProps> = ({ data, options }) => {
   return (
     <div className="h-48">
-      <Bar data={data} options={{ responsive: true, maintainAspectRatio: false }} />
+      <Bar
+        data={data}
+        options={options || { responsive: true, maintainAspectRatio: false }}
+      />
     </div>
   );
 };

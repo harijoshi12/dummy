@@ -1,12 +1,16 @@
+// src/app/dashboard/page.tsx
 "use client";
 
 import React from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import DashboardCard from "../components/DashboardCard";
-import ChartComponent from "../components/ChartComponent";
 import DealsTable from "../components/DealsTable";
-import { arAgingChartData, topDebtorsChartData, dsoChartData } from "@/data/chartData";
+import {
+  arAgingChartData,
+  topDebtorsChartData,
+  dsoChartData,
+} from "@/data/chartData";
 
 export default function DashboardPage() {
   return (
@@ -69,7 +73,6 @@ export default function DashboardPage() {
             />
           </div>
 
-       
           {/* Deals Table */}
           <div className="bg-white p-4 rounded-lg shadow-sm">
             <h2 className="text-lg font-bold mb-2">Deals Details</h2>

@@ -1,19 +1,18 @@
+// src/app/components/MainNavbar.tsx
 "use client";
 
-import React, { useState } from "react";
-import { Search, Menu } from "lucide-react";
+import React from "react";
+import { Search } from "lucide-react";
 import { FaCog } from "react-icons/fa";
 import { CgAdd } from "react-icons/cg";
 import { TbGridDots } from "react-icons/tb";
 import { CiDark } from "react-icons/ci";
 
 export default function MainNavbar() {
-
   return (
     <nav className="flex items-center justify-between bg-[#333452] px-4 md:px-6 py-3 text-white w-full">
       {/* Left - Toggle Icon & Logo */}
       <div className="flex items-center gap-3">
-    
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="grid grid-cols-2 gap-1">
@@ -34,7 +33,9 @@ export default function MainNavbar() {
           placeholder="Search..."
           className="w-full bg-transparent border-none focus:outline-none px-2 text-white placeholder-gray-400"
         />
-        <span className="text-xs text-white whitespace-nowrap ml-2">Ctrl + K</span>
+        <span className="text-xs text-white whitespace-nowrap ml-2">
+          Ctrl + K
+        </span>
       </div>
 
       {/* Right - Icons & Profile */}
