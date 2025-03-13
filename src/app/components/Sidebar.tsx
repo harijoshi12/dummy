@@ -1,3 +1,4 @@
+// src/app/components/Sidebar.tsx
 "use client";
 
 import React, { FC, ReactNode, useState } from "react";
@@ -14,19 +15,52 @@ interface SidebarItemProps {
 
 // Full List of Sidebar Items
 const sidebarItems: SidebarItemProps[] = [
-  { icon: <FaSalesforce className="text-blue-500" />, text: "Salesforce billing" },
+  {
+    icon: <FaSalesforce className="text-blue-500" />,
+    text: "Salesforce billing",
+  },
   { icon: <FaSalesforce className="text-blue-500" />, text: "Sale force CPQ" },
-  { icon: <FaSalesforce className="text-blue-500" />, text: "Sale billing configuration" },
-  { icon: <FaSalesforce className="text-blue-500" />, text: "Salesforce CPQ Admin" },
-  { icon: <FaSalesforce className="text-blue-500" />, text: "Advanced Approvals" },
-  { icon: <MdManageAccounts className="text-gray-700" />, text: "Order management" },
-  { icon: <IoAnalytics className="text-green-600" />, text: "Analytics studio" },
-  { icon: <FaSalesforce className="text-blue-500" />, text: "Salesforce billing" },
+  {
+    icon: <FaSalesforce className="text-blue-500" />,
+    text: "Sale billing configuration",
+  },
+  {
+    icon: <FaSalesforce className="text-blue-500" />,
+    text: "Salesforce CPQ Admin",
+  },
+  {
+    icon: <FaSalesforce className="text-blue-500" />,
+    text: "Advanced Approvals",
+  },
+  {
+    icon: <MdManageAccounts className="text-gray-700" />,
+    text: "Order management",
+  },
+  {
+    icon: <IoAnalytics className="text-green-600" />,
+    text: "Analytics studio",
+  },
+  {
+    icon: <FaSalesforce className="text-blue-500" />,
+    text: "Salesforce billing",
+  },
   { icon: <FaSalesforce className="text-blue-500" />, text: "Sale force CPQ" },
-  { icon: <FaSalesforce className="text-blue-500" />, text: "Sale billing configuration" },
-  { icon: <FaSalesforce className="text-blue-500" />, text: "Salesforce CPQ Admin" },
-  { icon: <FaSalesforce className="text-blue-500" />, text: "Advanced Approvals" },
-  { icon: <MdManageAccounts className="text-gray-700" />, text: "Order management" },
+  {
+    icon: <FaSalesforce className="text-blue-500" />,
+    text: "Sale billing configuration",
+  },
+  {
+    icon: <FaSalesforce className="text-blue-500" />,
+    text: "Salesforce CPQ Admin",
+  },
+  {
+    icon: <FaSalesforce className="text-blue-500" />,
+    text: "Advanced Approvals",
+  },
+  {
+    icon: <MdManageAccounts className="text-gray-700" />,
+    text: "Order management",
+  },
 ];
 
 const Sidebar: FC = () => {
@@ -49,9 +83,11 @@ const Sidebar: FC = () => {
       <div className="text-gray-900 font-semibold text-sm mb-3">APPS</div>
       <nav>
         <ul className="space-y-3">
-          {sidebarItems.slice(0, showAll ? sidebarItems.length : 7).map((item, index) => (
-            <SidebarItem key={index} icon={item.icon} text={item.text} />
-          ))}
+          {sidebarItems
+            .slice(0, showAll ? sidebarItems.length : 7)
+            .map((item, index) => (
+              <SidebarItem key={index} icon={item.icon} text={item.text} />
+            ))}
         </ul>
       </nav>
 
@@ -59,8 +95,7 @@ const Sidebar: FC = () => {
       {sidebarItems.length > 7 && (
         <div
           className="mt-2 text-blue-500 cursor-pointer font-semibold hover:underline"
-          onClick={() => setShowAll(!showAll)}
-        >
+          onClick={() => setShowAll(!showAll)}>
           {showAll ? "Show Less" : "View All"}
         </div>
       )}

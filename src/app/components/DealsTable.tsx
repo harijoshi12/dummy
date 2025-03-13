@@ -1,5 +1,7 @@
+// src/app/components/DealsTable.tsx
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 const DealsTable = () => {
@@ -27,16 +29,20 @@ const DealsTable = () => {
             <tr className="">
               {/* Product Name with Image */}
               <td className="py-4 px-4 flex items-center space-x-3">
-                <img
-                  src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MXM83ref_FV99_VW_34FR+watch-case-46-aluminum-rosegold-nc-s10_VW_34FR+watch-face-46-aluminum-rosegold-s10_VW_34FR?wid=750&hei=712&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1725645481882"
+                <Image
+                  src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MXM83ref_FV99_VW_34FR..."
                   alt="Apple Watch"
-                  className="w-10 h-10 rounded-lg"
+                  width={40} // specify width
+                  height={40} // specify height
+                  className="rounded-lg"
                 />
                 <span className="text-gray-800 font-medium">Apple Watch</span>
               </td>
 
               {/* Location */}
-              <td className="py-4 px-4 text-gray-600">6096 Marjolaine Landing</td>
+              <td className="py-4 px-4 text-gray-600">
+                6096 Marjolaine Landing
+              </td>
 
               {/* Date - Time */}
               <td className="py-4 px-4 text-gray-600">12.09.2019 - 12:53 PM</td>

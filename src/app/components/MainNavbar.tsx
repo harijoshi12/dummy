@@ -7,6 +7,7 @@ import { FaCog } from "react-icons/fa";
 import { CgAdd } from "react-icons/cg";
 import { TbGridDots } from "react-icons/tb";
 import { CiDark } from "react-icons/ci";
+import Image from "next/image";
 
 export default function MainNavbar() {
   return (
@@ -56,10 +57,12 @@ export default function MainNavbar() {
 
         {/* User Profile */}
         <div className="h-8 w-8 rounded-full border-2 border-gray-400 overflow-hidden">
-          <img
+          <Image
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRIW41SN7iIx8_Yc6mt8BpSxcUXt_ZZqe_8A&s"
             alt="User"
-            className="h-full w-full object-cover rounded-full"
+            width={32} // match your h-8 w-8
+            height={32}
+            className="object-cover rounded-full"
           />
         </div>
       </div>
